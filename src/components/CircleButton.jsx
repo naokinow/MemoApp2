@@ -1,18 +1,19 @@
 import React from 'react';
 import { ViewBase, Text, StyleSheet } from 'react-native';
-import { string } from 'prop-types';
+import { string, shape } from 'prop-types';
 
 export default function CircleButton (props) {
-    const { children } = props;
+    const { children, style } = props;
     return (
-<View style={styles.circleButton}>
-  <Text style={styles.circleLabel}>+</Text>
+<View style={[styles.circleButton, style]}>
+  <Text style={styles.circleLabel}>{children}</Text>
 </View>
   );
 }
 
 CircleButton.propTypes = {
     children: string.isRequired,
+    styles: shape(),
 };
 
 CircleButton.defaultProps = {
