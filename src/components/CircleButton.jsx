@@ -1,12 +1,13 @@
 import React from 'react';
 import { ViewBase, Text, StyleSheet } from 'react-native';
 import { string, shape } from 'prop-types';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function CircleButton (props) {
-    const { children, style } = props;
+    const { style, name } = props;
     return (
 <View style={[styles.circleButton, style]}>
-  <Text style={styles.circleLabel}>{children}</Text>
+    <AntDesign name={name} size={32} color="white" />
 </View>
   );
 }
@@ -14,9 +15,11 @@ export default function CircleButton (props) {
 CircleButton.propTypes = {
     children: string.isRequired,
     styles: shape(),
+    name: string.isRequired
 };
 
 CircleButton.defaultProps = {
+    style: null
     children: string.isRequired,
 };
 
